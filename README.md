@@ -2,14 +2,14 @@
 
 # PluralSight
 
-- BOT & Build-A-BOT-SERVER / Vue.js Fundamentals (Intermedia)
+- BOT & Build-A-BOT-SERVER / Vue.js Fundamentals (Intermediate)
 
 
 # VueSchool.io
 
-- Cart / Vuex for Everyone (Intermedia)
+- Cart / Vuex for Everyone (Intermediate)
 - Chatroom / Vue.js + Firebase Realtime Database (Beginner)
-- Custom-Directives / Custom Vue Directives (Intermedia)
+- Custom-Directives / Custom Vue Directives (Intermediate)
 
 
 # InCompleted
@@ -21,12 +21,22 @@
 - Vue.js Form Validation (Beginner)
 
 - JavaScript Testing Fundamentals (Beginner) 
-- Test with Jest (Intermedia)
+- Test with Jest (Intermediate)
 
-- Dynamic Forms with Vue.js (Intermedia)
+- Dynamic Forms with Vue.js (Intermediate)
 
-- The Vue.js Master Class (Intermedia)
+- The Vue.js Master Class (Intermediate)
 
 - Nuxt.js Fundamentals (Beginner)
-- Async Data with Nuxt.js (Intermedia)
+- Async Data with Nuxt.js (Intermediate)
 
+# PluralSight
+- Single Page Applications with Vue.js (Advanced)
+
+# VueMastery
+- Intro to Vue.js (Beginner)
+- Real World Vue.js (Intermediate)
+- Mastering Vuex (Intermediate)
+- Next-Level Vue (Intermediate)
+- Advanced Components (Intermediate)
+- Scaling Vue with Nuxt.js (Advanced)
