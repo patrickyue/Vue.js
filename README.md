@@ -5,7 +5,7 @@
 - BOT & Build-A-BOT-SERVER / Vue.js Fundamentals (Intermedia)
 
 
-# VueSchool.io
+# VueSchool.io Projects
 
 - Cart / Vuex for Everyone (Intermedia)
 - Chatroom / Vue.js + Firebase Realtime Database (Beginner)
