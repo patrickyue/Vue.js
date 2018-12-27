@@ -1,11 +1,11 @@
-# Vue.js Tutorial Projects
+# Vue.js Projects / Tutorial
 
-# PluralSight Projects
+# PluralSight
 
 - BOT & Build-A-BOT-SERVER / Vue.js Fundamentals (Intermedia)
 
 
-# VueSchool.io Projects
+# VueSchool.io
 
 - Cart / Vuex for Everyone (Intermedia)
 - Chatroom / Vue.js + Firebase Realtime Database (Beginner)
