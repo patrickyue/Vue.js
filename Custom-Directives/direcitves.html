@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custome Directives</title>
+  <script src="https://unpkg.com/vue@2.5.21/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div id="app" class="container">
+    <!--PASS STRING using ''-->
+    <h1 v-color="'purple'">Vue School</h1> 
+    <h1 v-color="'yellow'">vueschool.io</h1>
+    <h1 v-switching-color:slow="colors">vueschool.io</h1>
+    <h1 v-switching-color:crazy="colors">vueschool.io</h1>
+    <h1 v-switching-color:fast.underline="colors">vueschool.io</h1>
+    <h1 v-switching-color:slow.underline.textcenter="colors">vueschool.io</h1>
+    <h1 
+      v-switching-color:fast="colors"
+      v-if="show" >Vue School</h1> 
+    <button @click=" show = !show">toggle</button>
+  </div>
+
+
+  <script type="text/javascript">
+    Vue.directive('color', function(el, binding){
+      el.style.color = binding.value
+    });
+
+    Vue.directive('switching-color', {
+      bind: function (el, binding) {
+        const modifiers = binding.modifiers;
+        if(modifiers.underline){
+          el.style.textDecoration = 'underline';
+        }
+        if(modifiers.textcenter){
+          el.style.textAlign = 'center';
+        }
+        const speeds = {
+          slow: 2000,
+          normal:1000,
+          fast:500,
+          crazy:100,
+        }
+        const colors = binding.value;
+        const speedName = binding.arg || normal;
+        const speed = speeds[speedName];
+        let i = 0;
+        el.__SwitchingColorinterval__ = setInterval(()=>{
+          console.log('Changing');
+          el.style.color = colors[i++];
+          if(i > colors.length - 1 ){
+            i = 0;
+          }
+        },speed);
+      },
+      unbind:function(el){
+        clearInterval(el.__SwitchingColorinterval__ );
+      }
+    });
+
+    new Vue({
+      el: "#app",
+      data: {
+        colors:['purple','gold','pink','blue'],
+        show:true
+      },
+      mounted(){
+        this.colors.push('red');
+      }
+    })
+  </script>
+</body>
+</html>

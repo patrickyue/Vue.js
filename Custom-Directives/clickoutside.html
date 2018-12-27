@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custome Directives</title>
+  <script src="https://unpkg.com/vue@2.5.21/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+  <div id="app" class="container">
+    <h2>Click Outside</h2>
+    <div v-click-outside="clickedOutside" class="box" style="height:100px;width: 200px;border: 1px solid purple;"> 
+      here is some text
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {},
+      // local directives
+      directives:{
+        clickOutside :{
+          bind:function(el, binding){
+            // best practise: __NAME__
+            el.__ClickOutsideHandler__ = event => {
+              if (!( el === event.target || el.contains(event.target))){
+                binding.value(event);
+              }
+            }
+            document.body.addEventListener('click', el.__ClickOutsideHandler__ );
+          },
+          unbind:function(el){
+            document.body.removeEventListener('click', el.__ClickOutsideHandler__ );
+          }
+        }
+      },
+      methods:{
+        clickedOutside(){
+          alert('clicked outside!');
+        },
+      }
+    })
+  </script>
+</body>
+</html>
