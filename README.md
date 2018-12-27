@@ -9,8 +9,12 @@
 
 - Cart / Vuex for Everyone (Intermedia)
 - Chatroom / Vue.js + Firebase Realtime Database (Beginner)
+- Custom-Directives / Custom Vue Directives (Intermedia)
 
-# Unfinished
+
+# InCompleted
+
+# VueSchool.io
 - Vue.js + Firebase Authentication (Beginner)
 
 - Vue.js Fundamentals (Beginner)
@@ -20,7 +24,6 @@
 - Test with Jest (Intermedia)
 
 - Dynamic Forms with Vue.js (Intermedia)
-- Custom Vue Directives (Intermedia)
 
 - The Vue.js Master Class (Intermedia)
 
