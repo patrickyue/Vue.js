@@ -11,14 +11,61 @@
   <h1>Vue School Firebase Authentication</h1>
   <div v-if="authUser">
     <h2>Signed in as {{authUser.email}}
+        <img v-if="linkedGoogle" src="https://www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg" alt="">
+        <img v-if="linkedPassword" src="https://www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_email.svg" alt="">
     </h2>
+    <img :src="authUser.photoURL" height="150">
+    <p>Hi, {{authUser.displayName || 'Friend'}}, we know your like {{authUser.favoriteFood || 'Food'}}.</p>
+    <button @click="signOut">Sign Out</button>
+    <button v-if="!linkedGoogle" @click="linkGoogle">Link Google Account</button>
+    <button v-else @click="unlinkGoogle">Unlink Google Account</button>
+
+    <form @submit.prevent="updateProfile">
+      <h2>update Profile</h2>
+      <input v-model="displayName" placeholder="Your name">
+      <input v-model="photoURL" placeholder="Your photo url">
+      <button>update</button>
+    </form>
+
+    <form @submit.prevent="updateEmail">
+      <h2>update Email</h2>
+      <input type="email" v-model="email" placeholder="Your email">
+      <button>update</button>
+    </form>
+
+    <form @submit.prevent="updatePassword">
+      <h2>update Password</h2>
+      <input type="password" v-model="newpassword" placeholder="Your password">
+      <button>update</button>
+    </form>
+
+
+    <form @submit.prevent="updateCustomeDetails">
+        <h2>update Custom Details</h2>
+        <input v-model="favoriteFood" placeholder="Your Favorite Food">
+        <button>update</button>
+      </form>
   </div>
   <div v-else >
+
     <form @submit.prevent="register">
+      <h2>Register</h2>
       <input type="email" v-model="email" placeholder="Type your email">
       <input type="password" v-model="password" placeholder="Pick your password">
       <button>Submit</button>
     </form>
+
+    <form @submit.prevent="signIn">
+      <h2>Sign In</h2>
+      <input type="email" v-model="email" placeholder="Type your email">
+      <input type="password" v-model="password" placeholder="Pick your password">
+      <button>Sign In</button>
+    </form>
+
+    <div>
+      <h2>Sign In with Google</h2>
+      <button @click="signInWithGoogle">Sign In</button>
+    </div>
   </div>
   
 </div>
@@ -35,30 +82,109 @@
   };
   firebase.initializeApp(config);
 
-
-  const database = firebase.database();
-  const messagesRef = database.ref('messages');
- 
-
   new Vue({
     el: "#app",
     data: {
        email:'',
        password:'',
+       displayName:null,
+       photoURL:null,
        authUser:null,
+       newpassword:null,
+       favoriteFood:null,
     },
 
-    created(){
-     
+    computed:{
+      linkedGoogle(){
+        return this.authUser.providerData.find( provider => provider.providerId === 'google.com')
+      },
+
+      linkedPassword(){
+        return this.authUser.providerData.find( provider => provider.providerId === 'password')
+      }
     },
     methods: {
       register(){
-        firebase.auth().createUserWithEmailAndPassword(this.email,this.password);
+        firebase.auth().createUserWithEmailAndPassword(this.email,this.password)
+          .catch(error => alert(error.message));
+      },
+      signIn(){
+        firebase.auth().signInWithEmailAndPassword(this.email,this.password)
+          .catch(error => alert(error.message));
+      },
+      signInWithGoogle(){
+        const provider = new firebase.auth.GoogleAuthProvider();
+        // const provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(provider)
+          .catch(error => alert(error.message))
+          .then( data => console.log(data.user, data.credential.accessToken));
+      },
+
+      linkGoogle(){
+        const provider = new firebase.auth.GoogleAuthProvider();
+        // const provider = new firebase.auth.FacebookAuthProvider();
+        this.authUser.linkWithPopup(provider)
+          .catch(error => alert(error.message))
+          .then( data => console.log(data.user, data.credential.accessToken));
+      },
+
+      unlinkGoogle(){
+        this.authUser.unlink('google.com');
+      },
+
+      signOut(){
+        firebase.auth().signOut()
+      },
+
+      updateProfile(){
+        this.authUser.updateProfile({
+          displayName: this.displayName,
+          photoURL: this.photoURL,
+          email: this.email
+        });
+      },
+
+      updateEmail(){
+        this.authUser.updateEmail(this.email);
+      },
+
+      updatePassword(){
+        this.authUser.updatePassword(this.newpassword).then(()=>{
+          this.newpassword = null;
+        });
+      },
+
+      updateCustomeDetails(){
+        firebase.database().ref('users').child(this.authUser.uid)
+          .update({favoriteFood: this.favoriteFood});
       }
-    }
+    },
+
+    created(){
+      firebase.auth().onAuthStateChanged(user => { 
+        this.authUser = user ;
+        if(user){
+          this.displayName = user.displayName;
+          this.photoURL = user.photoURL;
+          this.email = user.email;
+          // firebase to listen the value event. only a demo for database references, API actions could be here.
+          firebase.database().ref('users').child(user.uid).once('value', snapshot => {
+
+            if(snapshot.val()){
+              this.favoriteFood = snapshot.val().favoriteFood;
+              // since vue could not detect the additon or deletion on properties, using Vue.set()
+              Vue.set(this.authUser, 'favoriteFood', this.favoriteFood);
+            }
+           
+          });
+        }
+        
+      });
+    },
+
   })
 
-  firebase.auth().onAuthStateChanged(user => { this.authUser = user })
+ 
 </script>
 </body>
 </html>
