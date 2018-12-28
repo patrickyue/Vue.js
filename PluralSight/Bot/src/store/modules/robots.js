@@ -11,7 +11,7 @@ export default {
   },
   // all changes of data should be in mutations;
   mutations: {
-    // 购物车 数据
+    // cart data
     addRobotToCart(state, robot) {
       /* eslint no-alert:0 */
       /* eslint no-restricted-globals:0 */
@@ -22,11 +22,11 @@ export default {
       /* eslint no-alert:0 */
       /* eslint no-restricted-globals:0 */
       state.parts = parts;
-      // es 不允许修改数据, 但是mutataion 是用来进行数据修改的,
+      // es 可能不允许直接修改state, 但是mutataion 是用来进行state修改的,
       // 所以 error的话 请修改eslintrc.js, rules , 'no-param-reassign': 0,
     },
   },
-  // API 操作
+  // API Actions
   actions: {
     getParts({ commit }) {
       axios.get('/api/parts')
