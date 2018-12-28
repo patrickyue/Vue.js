@@ -14,16 +14,6 @@ Run the following command from root folder of the forked project to install all 
 npm install
 ```
 
-### Verify Setup
-
-In order to verify that everything is setup correctly, run the following command that should show you the failing tests.
-
-```
-npm run test
-```
-
-This is good! We'll be fixing these tests once we jump into the build step. Every time you want to check your work locally you can type that command and it will report the status of every task in the project.  In addition, each module has tests that can be run scoped to just the tasks in that module.  See the instructions at the top of each list of tasks for more information.
-
 ### Previewing Your Work
 
 In order to see your changes in a browser, you can type this to start the application.
