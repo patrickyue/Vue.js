@@ -7,7 +7,7 @@
 
 # VueSchool.io
 
-- Cart / Vuex for Everyone (Intermediate)
+- Shopping Cart / Vuex for Everyone (Intermediate)
 - Chatroom / Vue.js + Firebase Realtime Database (Beginner)
 - Custom-Directives / Custom Vue Directives (Intermediate)
 
