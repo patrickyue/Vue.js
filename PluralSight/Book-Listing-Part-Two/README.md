@@ -1,4 +1,4 @@
-# Build a Reading List Part One
+# Build a Reading List Part Two
 
 This repo contains the code for the Pluralsight Project "Build a Reading List Application with Vue.js"
 
