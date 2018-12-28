@@ -1,29 +1,17 @@
-# bot
+# Build A BOT PROJECT
 
-## Project setup
+### Installation
+
 ```
 npm install
 ```
+### Start
 
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Then,http://localhost:8080
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Further More
+This project has already been built and deployed in the DATA server
