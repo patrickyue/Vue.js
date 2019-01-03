@@ -231,6 +231,60 @@
       "date": "",
       "time": "5:00",
       "attendees": []
+    },
+    {
+      "id": 1098270,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "test123",
+      "description": "123test",
+      "location": "home",
+      "date": "2019-01-02T18:30:00.000Z",
+      "time": "3:00",
+      "attendees": []
+    },
+    {
+      "id": 7808361,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Planting Trees",
+      "description": "We're going to plant trees",
+      "location": "The forest",
+      "date": "2019-01-18T18:39:00.000Z",
+      "time": "11:00",
+      "attendees": []
+    },
+    {
+      "id": 1587015,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "lunch",
+      "description": "have a lunch",
+      "location": "red pepper",
+      "date": "2019-01-03T18:44:00.000Z",
+      "time": "4:00",
+      "attendees": []
     }
   ]
 }
