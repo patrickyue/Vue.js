@@ -251,39 +251,21 @@
       "attendees": []
     },
     {
-      "id": 7808361,
+      "id": 3217386,
       "user": {
         "id": "abc123",
-        "name": "Adam Jahr"
+        "name": "Adam"
       },
       "category": "nature",
       "organizer": {
         "id": "abc123",
-        "name": "Adam Jahr"
+        "name": "Adam"
       },
-      "title": "Planting Trees",
-      "description": "We're going to plant trees",
-      "location": "The forest",
-      "date": "2019-01-18T18:39:00.000Z",
-      "time": "11:00",
-      "attendees": []
-    },
-    {
-      "id": 1587015,
-      "user": {
-        "id": "abc123",
-        "name": "Adam Jahr"
-      },
-      "category": "nature",
-      "organizer": {
-        "id": "abc123",
-        "name": "Adam Jahr"
-      },
-      "title": "lunch",
-      "description": "have a lunch",
-      "location": "red pepper",
-      "date": "2019-01-03T18:44:00.000Z",
-      "time": "4:00",
+      "title": "11",
+      "description": "3131",
+      "location": "13231",
+      "date": "2019-06-14T22:26:00.000Z",
+      "time": "19:00",
       "attendees": []
     }
   ]
