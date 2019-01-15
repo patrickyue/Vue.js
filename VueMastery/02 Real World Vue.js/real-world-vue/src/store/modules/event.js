@@ -5,7 +5,8 @@ export default {
   state: {
     events: [],
     event: {},
-    pages: 0
+    pages: 0,
+    perPage: 3
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -43,8 +44,8 @@ export default {
           throw error;
         });
     },
-    fetchEvents({ commit, dispatch }, { perPage, page }) {
-      EventService.getEvents(perPage, page)
+    fetchEvents({ commit, dispatch, state }, { page }) {
+      return EventService.getEvents(state.perPage, page)
         .then(response => {
           commit("SET_TOTAL_PAGES", response.headers["x-total-count"]);
           commit("SET_EVENTS", response.data);

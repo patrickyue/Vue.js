@@ -339,6 +339,42 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 7450318,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "PUppy Picnic",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 3497823,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "natrure wild",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
