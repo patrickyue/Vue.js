@@ -23,8 +23,8 @@ export default {
     }
   },
   actions: {
-    createEvent({ commit, rootState, dispatch }, event) {
-      console.log(rootState.user.user.name);
+    createEvent({ commit, dispatch }, event) {
+      // console.log(rootState.user.user.name);
       //dispatch('moduleName/actionToCall', null, {root: true}) , null is payload, root means go to this.$store to search
       return EventService.postEvent(event)
         .then(() => {

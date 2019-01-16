@@ -20,11 +20,11 @@ export default {
       timeout: null
     };
   },
-  mounted(){
-    this.timeout = setTimeout( ()=> this.remove(this.notification), 5000);
+  mounted() {
+    this.timeout = setTimeout(() => this.remove(this.notification), 5000);
   },
-  beforeDestroy(){
-    clearTimeout(this.timeout)
+  beforeDestroy() {
+    clearTimeout(this.timeout);
   },
   computed: {
     notificationTypeClass() {
