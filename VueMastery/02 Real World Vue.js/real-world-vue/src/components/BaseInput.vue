@@ -6,14 +6,14 @@
 </template>
 
 <script>
+import { formFieldMixins } from "../mixins/formFieldMixins.js";
 export default {
-  inheritAttrs: false, // disable root div inheritAttrs
+  mixins: [formFieldMixins],
   props: {
     label: {
       type: String,
       default: ""
-    },
-    value: [String, Number]
+    }
   },
   computed: {
     listeners() {
@@ -21,11 +21,6 @@ export default {
         ...this.$listeners,
         input: this.updateValue
       };
-    }
-  },
-  methods: {
-    updateValue(event) {
-      this.$emit("input", event.target.value);
     }
   }
 };

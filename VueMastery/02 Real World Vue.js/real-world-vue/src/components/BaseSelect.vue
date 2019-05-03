@@ -10,23 +10,13 @@
 </template>
 
 <script>
+import { formFieldMixins } from "../mixins/formFieldMixins.js";
 export default {
-  // disable root div inheritAttrs
-  inheritAttrs: false,
+  mixins: [formFieldMixins],
   props: {
     options: {
       type: Array,
       required: true
-    },
-    label: {
-      type: String,
-      default: ""
-    },
-    value: [String, Number]
-  },
-  methods: {
-    updateValue(event) {
-      this.$emit("input", event.target.value);
     }
   }
 };
